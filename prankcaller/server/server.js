@@ -16,6 +16,7 @@ if (Meteor.isServer) {
 	});
 	Meteor.methods({
 		sendText : function(toNum, bodyText){
+			//add number to database here
 			twilio.sendSms({
 			    to:'+1'+toNum, // Any number Twilio can deliver to
 			    from: '+19718034372', // A number you bought from Twilio and can use for outbound communication
