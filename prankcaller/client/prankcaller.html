@@ -3,12 +3,36 @@
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
+  <!--{{> hello}}-->
+  {{> sendCall}}
+  {{> sendText}}
 </body>
 
 <template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+    <div id = "hello" class = "container">
+        <h1>Welcome to Meteor!</h1>
+        <button class = "btn btn-primary">Click Me</button>
+        <p>You've pressed the button {{counter}} times.</p>
+    </div>
+</template>
+
+<template name = "sendCall">
+    <div id = "sendCall" class = "container">
+        <form class="form-group" id = "callForm"> 
+            <label for="callNumber">Phone number?</label>
+            <input type="text" class="form-control textBox" id="callNumber" placeholder="Enter phone-number">
+            <button type = "submit" id = "sendCall" class = "btn btn-default">Make the call</button>
+        </form>
+    </div>
+</template>
+
+<template name = "sendText">
+    <div id = "sendText" class = "container">
+        <form class="form-group" id = "textForm"> 
+            <label for="textNumber">Phone number?</label>
+            <input type="text" class="form-control textBox" id="textNumber" placeholder="Enter phone-number">
+            <input type="text" class="form-control textBox" id="textContent" placeholder="Text to send?">
+            <button type = "submit" id = "sendText" class = "btn btn-default">Send the text</button>
+        </form>
+    </div>
 </template>
