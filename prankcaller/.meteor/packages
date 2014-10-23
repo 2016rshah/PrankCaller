@@ -9,4 +9,5 @@ insecure
 http
 mrt:twilio-meteor
 mrt:moment
+mizzao:bootstrap-3
 
