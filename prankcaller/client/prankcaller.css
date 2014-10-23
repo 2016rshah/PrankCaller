@@ -1,1 +1,11 @@
 /* CSS declarations go here */
+
+.container{
+	width:50%;
+	margin-left:auto;
+	margin-right:auto;
+}
+.textBox{
+	width:50%;
+	margin-bottom:5px;
+}
