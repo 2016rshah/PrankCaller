@@ -1,1 +1,2 @@
-var Meteor;
+Meteor;
+numbers = new Meteor.Collection();
