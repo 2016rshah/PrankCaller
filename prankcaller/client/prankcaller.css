@@ -1,11 +1,107 @@
 /* CSS declarations go here */
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px) {
+	body { 
+	  background: url(bats-wings-black-dark-inverted.gif) no-repeat center center fixed; 
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	  min-height: 100%;
+	}
+}
 
+
+body{
+	background-color:black;
+}
+
+label{
+	margin-top:5px;
+}
+h1{
+	margin-top:10px;
+}
+#heading{
+	margin-top:10px;
+	text-align:center;
+	vertical-align: middle;
+}
 .container{
-	width:50%;
+	width:100%;
 	margin-left:auto;
 	margin-right:auto;
+	background-color: #FF9100;
+	border-color : #EA690E;
+	border: 5px solid #EA690E;
+    border-radius: 25px;
 }
 .textBox{
-	width:50%;
 	margin-bottom:5px;
+	text-align:center;
+}
+.pull-left{
+	margin-right:5px;
+}
+.pull-right{
+	margin-left:5px;
+}
+.center{
+	margin-right:auto;
+	margin-left:auto;
+	text-align:center;
+}
+
+
+/*Bootstrap edits*/
+.btn-bo { 
+  color: #ffffff; 
+  background-color: #000000; 
+  border-color: #000000; 
+} 
+ 
+.btn-bo:hover, 
+.btn-bo:focus, 
+.btn-bo:active, 
+.btn-bo.active, 
+.open .dropdown-toggle.btn-bo { 
+  color: #ffffff; 
+  background-color: #EA690E; 
+  border-color: #000000; 
+} 
+ 
+.btn-bo:active, 
+.btn-bo.active, 
+.open .dropdown-toggle.btn-bo { 
+  background-image: none; 
+} 
+ 
+.btn-bo.disabled, 
+.btn-bo[disabled], 
+fieldset[disabled] .btn-bo, 
+.btn-bo.disabled:hover, 
+.btn-bo[disabled]:hover, 
+fieldset[disabled] .btn-bo:hover, 
+.btn-bo.disabled:focus, 
+.btn-bo[disabled]:focus, 
+fieldset[disabled] .btn-bo:focus, 
+.btn-bo.disabled:active, 
+.btn-bo[disabled]:active, 
+fieldset[disabled] .btn-bo:active, 
+.btn-bo.disabled.active, 
+.btn-bo[disabled].active, 
+fieldset[disabled] .btn-bo.active { 
+  background-color: #000000; 
+  border-color: #000000; 
+} 
+ 
+.btn-bo .badge { 
+  color: #000000; 
+  background-color: #ffffff; 
+}
+
+.row{
+	margin-top:10px;
+	margin-bottom:10px;
 }

@@ -1,37 +1,62 @@
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <title>prankcaller</title>
 </head>
 
 <body>
-  {{> sendCall}}
-  {{> sendText}}
+    <div class = "row visible-lg">
+        <div class = "col-lg-6 col-lg-offset-3">
+            {{> heading}}
+        </div>  
+    </div>
+    <div class = "row visible-lg">
+        <div class = "col-lg-3 col-lg-offset-3">
+            {{> sendCall}}
+        </div>
+        <div class = "col-lg-3">
+            {{> sendText}}
+        </div>
+    </div>
+    <div class = "row hidden-lg">
+        <div class = "col-xs-9 col-xs-offset-1">
+            {{> heading}}
+        </div>
+    </div>
+    <div class = "row hidden-lg">
+        <div class = "col-xs-9 col-xs-offset-1">
+            {{> sendCall}}
+        </div>
+    </div>
+    <div class = "row hidden-lg">
+        <div class = "col-xs-9 col-xs-offset-1">
+            {{> sendText}}
+        </div>
+    </div>
 </body>
 
-<template name="hello">
-    <div id = "hello" class = "container">
-        <h1>Welcome to Meteor!</h1>
-        <button class = "btn btn-primary">Click Me</button>
-        <p>You've pressed the button {{counter}} times.</p>
+<template name="heading">
+    <div id = "heading" class = "container">
+        <h1>Welcome to Spook-Caller!</h1>
     </div>
 </template>
 
 <template name = "sendCall">
     <div id = "sendCall" class = "container">
-        <form class="form-group" id = "callForm"> 
-            <label for="callNumber">Phone number?</label>
+        <form class="form-group center" id = "callForm"> 
+            <label for="callNumber" class = "center">Phone number?</label>
             <input type="text" class="form-control textBox" id="callNumber" placeholder="Enter phone-number">
-            <button type = "submit" id = "sendCall" class = "btn btn-default">Make the call</button>
+            <button type = "submit" id = "sendCall" class = "btn btn-bo center">Make the call</button>
         </form>
     </div>
 </template>
 
 <template name = "sendText">
     <div id = "sendText" class = "container">
-        <form class="form-group" id = "textForm"> 
+        <form class="form-group center" id = "textForm"> 
             <label for="textNumber">Phone number?</label>
             <input type="text" class="form-control textBox" id="textNumber" placeholder="Enter phone-number">
             <input type="text" class="form-control textBox" id="textContent" placeholder="Text to send?">
-            <button type = "submit" id = "sendText" class = "btn btn-default">Send the text</button>
+            <button type = "submit" id = "sendText" class = "btn btn-bo">Send the text</button>
         </form>
     </div>
 </template>
