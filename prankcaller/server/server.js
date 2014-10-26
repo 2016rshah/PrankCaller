@@ -1,5 +1,5 @@
 if (Meteor.isServer) {
-	//twilio from sticky note here
+	twilio = Twilio('AC6beb75baceeedb11eb06abdc499f1a5d', '0ea6ebfb99aa7da3d8f7eb932de9ed00');
 	Meteor.startup(function () {
 	// // code to run on server at startup
 	// Meteor.http.get("https://api.twitter.com/1.1/search/tweets.json?q=%23freebandnames&since_id=24012619984051000&max_id=250126199840518145&result_type=mixed&count=4", {}, function(err, data){
@@ -17,7 +17,7 @@ if (Meteor.isServer) {
 	Meteor.methods({
 		sendText : function(toNum, bodyText){
 			//add number to database here
-			
+			bodyText += "\n\n~Spooked? Get revenge at spook.meteor.com.~";
 			
 			var boundFunction = Meteor.bindEnvironment(function(err, responseData){
 				if (!err) { // "err" is an error received during the request, if any
@@ -46,7 +46,7 @@ if (Meteor.isServer) {
 				}, function(err, responseData){boundFunction(err, responseData)});
 			
 		}, 
-		sendCall : function(toNum){
+		sendCall : function(toNum, soundURL){
 			if(called.find({"number":toNum}).fetch().length === 0){
 				called.insert({"number":toNum, "frequency":1});  
 			}
@@ -57,14 +57,21 @@ if (Meteor.isServer) {
 				{
 					to:'+1'+toNum, // Any number Twilio can call
 					from: '+19718034372', // A number you bought from Twilio and can use for outbound communication
-					url: "http://twimlets.com/echo?Twiml=%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%20%3F%3E%3CResponse%3E%3CSay%3EHello%20world!%3C%2FSay%3E%3CSms%3EWhatup%3C%2FSms%3E%3C%2FResponse%3E"
+					url: soundURL
 				}, 
 				function(err, responseData) {
 					//executed when the call has been initiated.
 					console.log(responseData.from); // outputs "+14506667788"
-					if(called.find({"number":toNum}).fetch().length === 0){
-						called.insert({"number":toNum});
-					}
+				}
+			);
+			twilio.sendSms(
+				{
+					to:'+1'+toNum,
+					from: '+19718034372',
+					body: "Spooked? Get revenge at spook.meteor.com."
+				}, 
+				function(err, responseData){
+					console.log(responseData.from);	
 				}
 			);
 		}
