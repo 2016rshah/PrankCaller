@@ -105,3 +105,7 @@ fieldset[disabled] .btn-bo.active {
 	margin-top:10px;
 	margin-bottom:10px;
 }
+
+.list-group{
+	margin-bottom:10px;
+}
