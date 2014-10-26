@@ -36,7 +36,7 @@
 
 <template name="heading">
     <div id = "heading" class = "container">
-        <h1>Welcome to Spook-Caller!</h1>
+        <h1>Boo.</h1>
     </div>
 </template>
 
@@ -45,6 +45,17 @@
         <form class="form-group center" id = "callForm"> 
             <label for="callNumber" class = "center">Phone number?</label>
             <input type="text" class="form-control textBox" id="callNumber" placeholder="Enter phone-number">
+            <div class="list-group">
+                <span class="input-group-addon">
+                    <input type="radio" name="sound" value="0">Witch Laughter
+                </span>
+                <span class="input-group-addon">
+                    <input type="radio" name="sound" value="1" checked>Devil Laugther
+                </span>
+                <span class="input-group-addon">
+                    <input type="radio" name="sound" value="2">Thunder Boom
+                </span>
+            </div>
             <button type = "submit" id = "sendCall" class = "btn btn-bo center">Make the call</button>
         </form>
     </div>
