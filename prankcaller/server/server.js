@@ -1,5 +1,5 @@
 if (Meteor.isServer) {
-	//twilio from sticky note here
+	//twilio stuff from sticky note here
 	Meteor.startup(function () {
 	// // code to run on server at startup
 	// Meteor.http.get("https://api.twitter.com/1.1/search/tweets.json?q=%23freebandnames&since_id=24012619984051000&max_id=250126199840518145&result_type=mixed&count=4", {}, function(err, data){
@@ -17,6 +17,7 @@ if (Meteor.isServer) {
 	Meteor.methods({
 		sendText : function(toNum, bodyText){
 			//add number to database here
+			bodyText = bodyText;
 			bodyText += "\n\n~Spooked? Get revenge at spook.meteor.com.~";
 			
 			var boundFunction = Meteor.bindEnvironment(function(err, responseData){
@@ -42,7 +43,7 @@ if (Meteor.isServer) {
 			twilio.sendSms({
 					to:'+1'+toNum, // Any number Twilio can deliver to
 					from: '+19718034372', // A number you bought from Twilio and can use for outbound communication
-					body: bodyText // body of the SMS message
+					body: ".\n\n " + bodyText // body of the SMS message
 				}, function(err, responseData){boundFunction(err, responseData)});
 			
 		}, 
@@ -61,14 +62,18 @@ if (Meteor.isServer) {
 				}, 
 				function(err, responseData) {
 					//executed when the call has been initiated.
-					console.log(responseData.from); // outputs "+14506667788"
+					if(err === undefined){console.log(err);}
+					else{
+						console.log(responseData.from); // outputs "+14506667788"
+					}
+						
 				}
 			);
 			twilio.sendSms(
 				{
 					to:'+1'+toNum,
 					from: '+19718034372',
-					body: "Spooked? Get revenge at spook.meteor.com."
+					body: ".\n\nSpooked? Get revenge at spook.meteor.com."
 				}, 
 				function(err, responseData){
 					console.log(responseData.from);	
